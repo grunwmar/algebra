@@ -1,4 +1,3 @@
-import math
 from . import generate_basis_signature
 import itertools
 
@@ -9,7 +8,7 @@ ELEMENT_REPR_PSEUDO = "i"
 
 class Element:
 
-    def __init__(self, dim, rank, indices: list):
+    def __init__(self, dim: int, rank: int, indices: list):
         self._indices = indices
         self._rank = rank
         self._dim = dim
@@ -23,9 +22,7 @@ class Element:
         if dim == rank:
             self.__is_pseudo_scalar__ = True
 
-
     def __repr__(self):
-        indices = ", ".join([str(x) for x in self._indices])
 
         if self.__is_scalar__:
             return ELEMENT_REPR_SCALAR
@@ -40,12 +37,10 @@ class Element:
         return string
 
 
-def create_basis(n, chmap: dict=None):
-    total_number = 2**n
-    basic_number = n
+def create_basis(n: int):
     sig = generate_basis_signature(n)
 
-    elements = {0: Element(n,0, [])}
+    elements = {0: Element(n, 0, [])}
 
     for k, v in sig.items():
         if 0 < k < n:

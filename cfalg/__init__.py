@@ -1,7 +1,7 @@
 import math
 
 
-def namingf(k, n, short=False):
+def namingf(k: int, n: int, short=False):
     if short:
         names = ["s", f"v{k}", "i"]
     else:
@@ -14,7 +14,7 @@ def namingf(k, n, short=False):
         return names[1]
 
 
-def generate_basis_signature(n):
+def generate_basis_signature(n: int):
     base_classes = {}
     for k in range(0, n+1):
         c = math.comb(n, k)
