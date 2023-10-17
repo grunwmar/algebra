@@ -4,4 +4,5 @@ import itertools
 
 from cfalg.Algebra import create_basis
 
-b = create_basis(3)
+b = create_basis(4)
+print(b)
